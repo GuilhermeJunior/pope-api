@@ -20,4 +20,10 @@ public class PopeService {
                 .map(PopeEntity::toDTO)
                 .toList();
     }
+
+    public PopeResponse findById(Long id) {
+       return popeEntityRepository.findById(id)
+               .orElseThrow(() -> new RuntimeException("Not found ID"))
+               .toDTO();
+    }
 }
