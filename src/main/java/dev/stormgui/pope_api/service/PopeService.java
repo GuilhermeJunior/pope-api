@@ -2,6 +2,7 @@ package dev.stormgui.pope_api.service;
 
 import dev.stormgui.pope_api.model.PopeEntity;
 import dev.stormgui.pope_api.model.dto.PopeResponse;
+import dev.stormgui.pope_api.model.dto.PopesResponse;
 import dev.stormgui.pope_api.repository.PopeEntityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,11 +15,12 @@ public class PopeService {
 
     private final PopeEntityRepository popeEntityRepository;
 
-    public List<PopeResponse> getAll() {
-        return popeEntityRepository.findAll()
+    public PopesResponse getAll() {
+        List<PopeResponse> popes = popeEntityRepository.findAll()
                 .stream()
                 .map(PopeEntity::toDTO)
                 .toList();
+        return new PopesResponse(popes);
     }
 
     public PopeResponse findById(Long id) {

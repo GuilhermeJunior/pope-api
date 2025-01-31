@@ -1,6 +1,7 @@
 package dev.stormgui.pope_api.controller;
 
 import dev.stormgui.pope_api.model.dto.PopeResponse;
+import dev.stormgui.pope_api.model.dto.PopesResponse;
 import dev.stormgui.pope_api.service.PopeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +20,12 @@ public class PopeController {
     private final PopeService popeService;
 
     @GetMapping
-    public List<PopeResponse> getAll() {
-        return popeService.getAll();
+    public ResponseEntity<PopesResponse> getAll() {
+        return ResponseEntity.ok(popeService.getAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PopeResponse> getById(@PathVariable Long id) {
-        return ResponseEntity.ok()
-                .body(popeService.findById(id));
+        return ResponseEntity.ok(popeService.findById(id));
     }
 }
