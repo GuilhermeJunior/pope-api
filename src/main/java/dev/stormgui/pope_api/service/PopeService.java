@@ -3,6 +3,7 @@ package dev.stormgui.pope_api.service;
 import dev.stormgui.pope_api.model.PopeEntity;
 import dev.stormgui.pope_api.model.dto.PopeResponse;
 import dev.stormgui.pope_api.model.dto.PopesResponse;
+import dev.stormgui.pope_api.model.exception.ResourceNotFoundException;
 import dev.stormgui.pope_api.repository.PopeEntityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -27,7 +28,7 @@ public class PopeService {
 
     public PopeResponse findById(Long id) {
        return popeEntityRepository.findById(id)
-               .orElseThrow(() -> new RuntimeException("Not found ID"))
+               .orElseThrow(() -> new ResourceNotFoundException("Not found ID=" + id))
                .toDTO();
     }
 
