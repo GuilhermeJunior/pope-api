@@ -5,6 +5,8 @@ import dev.stormgui.pope_api.model.dto.PopeResponse;
 import dev.stormgui.pope_api.model.dto.PopesResponse;
 import dev.stormgui.pope_api.repository.PopeEntityRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,5 +29,9 @@ public class PopeService {
        return popeEntityRepository.findById(id)
                .orElseThrow(() -> new RuntimeException("Not found ID"))
                .toDTO();
+    }
+
+    public Page<PopeResponse> findAllPage(int pages, int size) {
+        return popeEntityRepository.findAll(PageRequest.of(pages, size)).map(PopeEntity::toDTO);
     }
 }

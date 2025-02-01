@@ -1,12 +1,14 @@
 package dev.stormgui.pope_api.controller;
 
+import dev.stormgui.pope_api.controller.utils.CustomPageImpl;
 import dev.stormgui.pope_api.model.dto.PopeResponse;
-import dev.stormgui.pope_api.model.dto.PopesResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -32,12 +34,18 @@ class PopeControllerTest {
 
     @Test
     void shouldTestGetAllEndpoint() {
-        ResponseEntity<PopesResponse> response = restTemplate.getForEntity(getURL(), PopesResponse.class);
+        ResponseEntity<CustomPageImpl<PopeResponse>> response = restTemplate.exchange(
+                getURL() + "?page=0&size=10",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<>() {
+                }
+        );
 
         assertThat(response.getStatusCode())
                 .isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody().popes())
-                .hasSize(266);
+        assertThat(response.getBody().getTotalElements())
+                .isEqualTo(10);
     }
 
     private String getURL() {
