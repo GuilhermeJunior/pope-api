@@ -48,6 +48,15 @@ class PopeControllerTest {
                 .isEqualTo(10);
     }
 
+    @Test
+    void shouldReturnStatus404WhenResourceNotFound() {
+        var url = getURL() + "/3000";
+        ResponseEntity<Object> response =  restTemplate.getForEntity(url, Object.class);
+        assertThat(response.getStatusCode())
+                .isEqualTo(HttpStatus.NOT_FOUND);
+
+    }
+
     private String getURL() {
         return "http://localhost:" + port + "/api/v1/popes";
     }
