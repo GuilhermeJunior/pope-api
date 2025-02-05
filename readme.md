@@ -14,3 +14,11 @@ Base de dados https://www.wikiwand.com/pt/articles/Lista_de_papas
 - [ ] Desenvolvimento da lógica
 - [ ] Adição de banco de dados
 - [ ] Adição de camada de segurança
+
+## Swagger
+
+Ambiente local
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
