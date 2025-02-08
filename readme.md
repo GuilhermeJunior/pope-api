@@ -11,8 +11,8 @@ Base de dados https://www.wikiwand.com/pt/articles/Lista_de_papas
 
 ## Status do Desenvolvimento
 ### Etapas principais:
-- [ ] Desenvolvimento da lógica
-- [ ] Adição de banco de dados
+- [x] Desenvolvimento da lógica
+- [x] Adição de banco de dados
 - [ ] Adição de camada de segurança
 
 ## Swagger
