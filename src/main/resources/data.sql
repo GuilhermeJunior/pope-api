@@ -263,4 +263,5 @@ INSERT INTO popes (id, name, pontificate, place_of_birth) VALUES (262, 'Paulo VI
 INSERT INTO popes (id, name, pontificate, place_of_birth) VALUES (263, 'João Paulo I Ioannes Paulus Primus', '26 de agosto de 1978 a 28 de setembro de 1978', 'Forno di Canale, Itália');
 INSERT INTO popes (id, name, pontificate, place_of_birth) VALUES (264, 'João Paulo II Ioannes Paulus Secundus', '16 de outubro de 1978 a 2 de abril de 2005', 'Wadowice, Polônia');
 INSERT INTO popes (id, name, pontificate, place_of_birth) VALUES (265, 'Bento XVI Benedictus Decimus Sextus', '19 de abril de 2005 a 28 de fevereiro de 2013', 'Marktl, Alemanha');
-INSERT INTO popes (id, name, pontificate, place_of_birth) VALUES (266, 'Francisco, S.J. Franciscus', '13 de março de 2013 a atualidade', 'Buenos Aires, Argentina');
+INSERT INTO popes (id, name, pontificate, place_of_birth) VALUES (266, 'Francisco, S.J. Franciscus', '13 de março de 2013 a 21 de abril de 2025', 'Buenos Aires, Argentina');
+INSERT INTO popes (id, name, pontificate, place_of_birth) VALUES (267, 'Francisco, S.J. Franciscus', '08 de maio de 2025 a atualidade', 'Chicago, Estados Unidos');
